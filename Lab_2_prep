@@ -1,18 +1,48 @@
 1.  What is the Address Resolution Protocol (ARP), and what is its role in a network?
 
+  Address Resolution Protocol (ARP) je protokol koji služi za preslikavanje mrežne adrese u fizičku adresu. 
+  Mrežna adresa je npr. IP adresa, a fizička je npr. MAC (Media Access Control). Kad uređaj želi preko mreže poslati
+  nekakve podatke, onda ARP šalje poruku svim uređajima u mreži kojom ispituje koji uređaj ima traženu IP adresu, pri čemu
+  pronađeni uređaj odgovara slanjem svoje MAC adrese čime omogućuje da mu se pošalju podaci od uređaja pošiljatelja.
+
 2.  What is a Man-in-the-Middle (MitM) attack, and how does ARP spoofing enable it?
+
+  Man-in-the-Middle (MitM) je vrsta kibernetičkog napada gdje napadač presreće komunikaciju 
+  narušavajući poslanim podacima povjerljivost, integritet ili oboje.
+  ARP spoofing je način provođenja MitM napada gdje napadač šalje svoju MAC adresu uređajima u mreži
+  praveći se da posjeduje IP adresu primatelja i na taj način mijenja ARP tablicu ciljanog uređaja i preusmjerava promet na sebe.
 
 3.  How does an attacker use ARP spoofing to intercept network traffic?
 
+  Napadač šalje svoju MAC adresu praveći se da posjeduje IP adresu uređaja primatelja i na taj način
+  preusmjerava pakete informacija u mreži na sebe.
+
 4.  How is the cookie used to derive the encryption/decryption key? 
+
+  Kolačići su mali paketi podataka koje web stranica odnosno server pohranjuje
+  na računalo posjetitelja, odnosno klijenta, u cilju praćenja aktivnosti.
+  Na taj način se prilikom logiranja klijenta na neki server može 
+  poslati kolačić tom klijentu s enkriptiranom porukom kako bi se zapamtila njegova sesija.
+  Klijent prilikom povratka na stranicu (server) dostavlja svoju poruku
+  i ona se dekriptira i ako server dobije istu izvornu poruku znači da je u pitanju ispravan klijent.
 
 5.  What REST API request do you need to send to the crypto oracle the secret cookie?
 
+  GET /arp/cookie
+
 6.  How do you obtain the authentication token?
+
+  Autentikacijski token se dobije na način da se serveru pošalje korisničko ime i lozinka
+  kako bi nas server zapamtio s identifikatorskim parametrima.
 
 7.  How do you use the authentication token to obtain the cookie?
 
+  Autentikacijski token šaljemo servru s naredbom za dohvaćanje kolačića GET/arp/cookie
+
 8.  What encryption mode is used to encrypt the challenge in this lab?
+
+  CBC (Cipher Block Chaining)
 
 9.  What tool can you use to capture network traffic on a local network interface?
 
+  tcpdump
